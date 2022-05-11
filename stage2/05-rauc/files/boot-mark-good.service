@@ -11,6 +11,7 @@ Type=oneshot
 ExecStartPre=-mount -o remount,rw /boot
 ExecStartPre=-mount -o remount,rw /mnt/factory_data
 ExecStartPre=-sh -c 'cp /boot/tryboot.txt /boot/config.txt 2>>/dev/null'
+ExecStartPre=-sh -c 'rm -f /boot/tryboot.txt'
 ExecStartPre=-mount -o remount,ro /boot
 ExecStart=rauc status mark-good
 ExecStartPost=-systemctl disable boot-mark-good.service
