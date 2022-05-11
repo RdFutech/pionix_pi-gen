@@ -138,9 +138,9 @@ if [ "${NO_PRERUN_QCOW2}" = "0" ]; then
 	fi
 	done
 	mkdosfs -n boot -F 32 -v "$BOOT_DEV" > /dev/null
-	mkfs.ext4 -L rootfs -O "$ROOT_FEATURES" "$ROOT_DEV" > /dev/null
-	mkfs.ext4 -L data_factory -O "$ROOT_FEATURES" "$DATAF_DEV" > /dev/null
-	mkfs.ext4 -L data_user -O "$ROOT_FEATURES" "$DATA_DEV" > /dev/null
+	mkfs.ext4 -I 256 -L rootfs -O "$ROOT_FEATURES" "$ROOT_DEV" > /dev/null
+	mkfs.ext4 -I 256 -L data_factory -O "$ROOT_FEATURES" "$DATAF_DEV" > /dev/null
+	mkfs.ext4 -I 256 -L data_user -O "$ROOT_FEATURES" "$DATA_DEV" > /dev/null
 
 	mount -v "$ROOT_DEV" "${ROOTFS_DIR}" -t ext4
 	mkdir -p "${ROOTFS_DIR}/boot"
