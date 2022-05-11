@@ -7,7 +7,7 @@ fi
 
 if [ -f $1 ]; then
    rw
-   FN="${1%.pnx}.raucb"
+   FN="${1%.*}.raucb"
    mv $1 $FN 
    if [ $2 == "--reboot-delete" ]; then
      rauc install $FN && rm $1 && sudo reboot '0 tryboot'

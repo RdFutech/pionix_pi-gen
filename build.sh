@@ -207,6 +207,7 @@ export IMG_FILENAME="${IMG_FILENAME:-"$IMG_TIMESTAMP-${IMG_DATE}-${IMG_NAME}"}"
 export IMG_DESCRIPTION="${IMG_DESCRIPTION:-"Belay Box upate"}"
 export HW_ID="${HW_ID:-"belayboxr1"}"
 export UPDATE_CHANNEL="${UPDATE_CHANNEL:-"unstable"}"
+export UPDATE_EVEREST_CHANNEL="${UPDATE_EVEREST_CHANNEL:-"unstable"}"
 export ARCHIVE_FILENAME="${ARCHIVE_FILENAME:-"image_${IMG_DATE}-${IMG_NAME}"}"
 
 export SCRIPT_DIR="${BASE_DIR}/scripts"
