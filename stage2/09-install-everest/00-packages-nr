@@ -1,0 +1,6 @@
+mosquitto
+openjdk-11-jre
+nodejs
+sqlite3
+libboost-program-options1.74.0
+libboost-log1.74.0

@@ -1,0 +1,25 @@
+to fix:
+
+- include everest and update uC automatically including downgrades to make sure it fits the release version
+- rw/ro into bash prompt
+- make sure fsck really runs at least on boot partition from time to time?
+
+- rauc status mark-good without RW does not work but does not fail either
+- real PKI
+- real boot screen
+- watchdog
+- rpi eeprom bootloader update needs to be handled somehow
+sudo rpi-eeprom-update -a seems to only update if a new version is available
+- default password does not work for now, needs special treatment!
+- think about cloning the whole raspian repo to own server
+
+
+updates:
+
+- VL805 usb controller
+- rpi eeprom boot loader
+- rpi firmware on boot part
+- kernel and device tree
+- root partition incl everest
+- yeti controller FW
+
