@@ -1,0 +1,11 @@
+[Unit]
+Description=EVerest Display App
+After=systemd-logind.service
+
+[Service]
+Type=simple
+ExecStart=flutter-pi --release /opt/displayapp/
+
+[Install]
+WantedBy=multi-user.target
+
