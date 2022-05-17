@@ -21,29 +21,33 @@ case $1 in
     mount /dev/mmcblk0p5 $FDATA
     mount /dev/mmcblk0p1 $BOOT
     mkdir -p $FDATA/rauc
-    # copy boot files and place a tryboot file
-    cp -r /boot_factorydefault/* $BOOT/$2/
-    cp /boot_factorydefault/config.txt $BOOT/tryboot.txt
+    ROOT=`mktemp -d`
     # hack fstab of target system to replace with correct root
     if [ $2 == "system1" ]; then
-	ROOT=`mktemp -d`
 	mount /dev/mmcblk0p3 $ROOT
+        # copy boot files and place a tryboot file
+        cp -r $ROOT/boot_factorydefault/* $BOOT/$2/
+        cp $ROOT/boot_factorydefault/config.txt $BOOT/tryboot.txt
         sed -i 's/mmcblk0p2/mmcblk0p3/g' $ROOT/etc/fstab
         sed -i 's/mmcblk0p2/mmcblk0p3/g' $BOOT/system1/cmdline.txt
-	umount $ROOT
+    else
+	mount /dev/mmcblk0p2 $ROOT
+        # copy boot files and place a tryboot file
+        cp -r $ROOT/boot_factorydefault/* $BOOT/$2/
+        cp $ROOT/boot_factorydefault/config.txt $BOOT/tryboot.txt
     fi
 
     echo "[all]" >> "$BOOT/tryboot.txt"
     echo "gpu_mem=16" >> "$BOOT/tryboot.txt"
 
     if [ $2 == "system1" ]; then
-        cp /boot_factorydefault/start4cd.elf "$BOOT/1strt4cd.elf"
-        cp /boot_factorydefault/fixup4cd.dat "$BOOT/1fxup4cd.dat"
+        cp $ROOT/boot_factorydefault/start4cd.elf "$BOOT/1strt4cd.elf"
+        cp $ROOT/boot_factorydefault/fixup4cd.dat "$BOOT/1fxup4cd.dat"
         echo "start_file=1strt4cd.elf" >> "$BOOT/tryboot.txt"
         echo "fixup_file=1fxup4cd.dat" >> "$BOOT/tryboot.txt"
     else
-        cp /boot_factorydefault/start4cd.elf "$BOOT/0strt4cd.elf"
-        cp /boot_factorydefault/fixup4cd.dat "$BOOT/0fxup4cd.dat"
+        cp $ROOT/boot_factorydefault/start4cd.elf "$BOOT/0strt4cd.elf"
+        cp $ROOT/boot_factorydefault/fixup4cd.dat "$BOOT/0fxup4cd.dat"
         echo "start_file=0strt4cd.elf" >> "$BOOT/tryboot.txt"
         echo "fixup_file=0fxup4cd.dat" >> "$BOOT/tryboot.txt"
     fi
@@ -52,6 +56,7 @@ case $1 in
     echo $2>$FDATA/rauc/primary
     umount $FDATA
     umount $BOOT
+    umount $ROOT
     exit 0
     ;;
 

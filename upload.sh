@@ -20,5 +20,6 @@ sftp -oBatchMode=no -b - pionix@pionix-update.de << EOF
    put "$FN.pnx"
    put "$FN.meta"
    put "$FN.meta" "current.meta"
+   put "$FN.img.gz"
    bye
 EOF

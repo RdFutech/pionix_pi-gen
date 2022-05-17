@@ -7,7 +7,7 @@ FIRST_USER_PASS='everest'
 WPA_ESSID='mywifi'
 WPA_PASSWORD='password'
 WPA_COUNTRY='DE'
-DEPLOY_COMPRESSION='none'
+DEPLOY_COMPRESSION='gz'
 IMG_DESCRIPTION='Cool new update'
 HW_ID='belayboxr1'
 # this is where the full update goes on the server.

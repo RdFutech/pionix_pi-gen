@@ -1,6 +1,7 @@
 [Unit]
 Description=EVerest Display App
-After=systemd-logind.service
+After=network.target
+After=mosquitto.service
 
 [Service]
 Type=simple

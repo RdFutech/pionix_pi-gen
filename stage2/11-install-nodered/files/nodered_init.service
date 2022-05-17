@@ -1,0 +1,15 @@
+# systemd service file to start Node-RED
+
+[Unit]
+Description=Node-RED graphical event wiring tool
+Wants=network.target
+Documentation=http://nodered.org/docs/hardware/raspberrypi.html
+
+[Service]
+Type=oneshot
+User=everest
+Group=everest
+ExecStart=/usr/bin/nodered_init.sh
+
+[Install]
+WantedBy=multi-user.target

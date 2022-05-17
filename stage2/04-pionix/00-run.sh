@@ -60,7 +60,11 @@ else
     ln -s /mnt/user_data/etc/wpa_supplicant /etc/wpa_supplicant
 fi
 systemctl enable user-wpa-supplicant.service
-
+systemctl disable hciuart
+systemctl disable rpi-eeprom-update.service
 systemctl enable read-only-root.service
+rm -rf /etc/wireguard
+ln -s /mnt/user_data/etc/wireguard /etc/wireguard
+systemctl enable wg-quick@wg0.service
 EOF
 

@@ -3,13 +3,16 @@ to fix:
 - include everest and update uC automatically including downgrades to make sure it fits the release version
 - rw/ro into bash prompt
 - make sure fsck really runs at least on boot partition from time to time?
-
+- non default pw for everest user
+- generate PIN for display
 - rauc status mark-good without RW does not work but does not fail either
 - real PKI
 - real boot screen
+- /tmp has no write permission for normal users
 - watchdog
 - rpi eeprom bootloader update needs to be handled somehow
-sudo rpi-eeprom-update -a seems to only update if a new version is available
+sudo rpi-eeprom-update -a seems to only update if a new version is available.
+Service is now disabled, so we need to run this at every update!
 - default password does not work for now, needs special treatment!
 - think about cloning the whole raspian repo to own server
 

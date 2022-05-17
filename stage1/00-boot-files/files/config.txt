@@ -76,7 +76,7 @@ disable_overscan=1
 otg_mode=1
 
 [all]
-#dtoverlay=vc4-fkms-v3d
+dtoverlay=disable-bt
 enable_uart=1
 dtoverlay=qca7000,speed=12000000
 dtoverlay=miniuart-bt
@@ -85,5 +85,5 @@ hdmi_group=2
 hdmi_mode=87
 hdmi_cvt=800 480 60 6 0 0 0
 max_usb_current=1
-#disable_splash=1
+disable_splash=1
 
