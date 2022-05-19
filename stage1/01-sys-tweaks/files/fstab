@@ -3,6 +3,6 @@ proc            /proc           proc    defaults          0       0
 /dev/mmcblk0p2  /               ext4    defaults,noatime,rw  0       0
 /dev/mmcblk0p5  /mnt/factory_data               ext4    defaults,noatime,ro  0       0
 /dev/mmcblk0p6  /mnt/user_data               ext4    defaults,noatime,rw  0       0
-tmpfs           /tmp            tmpfs   nosuid,nodev         0       0
+tmpfs           /tmp            tmpfs   nosuid,nodev,mode=1777         0       0
 tmpfs           /var/log        tmpfs   nosuid,nodev         0       0
-tmpfs           /var/tmp        tmpfs   nosuid,nodev         0       0
+tmpfs           /var/tmp        tmpfs   nosuid,nodev,mode=1777         0       0

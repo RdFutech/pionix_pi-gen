@@ -1,28 +1,33 @@
 to fix:
 
 - include everest and update uC automatically including downgrades to make sure it fits the release version
-- rw/ro into bash prompt
-- make sure fsck really runs at least on boot partition from time to time?
 - non default pw for everest user
-- generate PIN for display
-- rauc status mark-good without RW does not work but does not fail either
 - real PKI
-- real boot screen
-- /tmp has no write permission for normal users
-- watchdog
-- rpi eeprom bootloader update needs to be handled somehow
-sudo rpi-eeprom-update -a seems to only update if a new version is available.
-Service is now disabled, so we need to run this at every update!
-- default password does not work for now, needs special treatment!
+- network time sync
+
+------- later
+- sync systemtime to RTC and back
+- make sure fsck really runs at least on boot partition from time to time?
 - think about cloning the whole raspian repo to own server
+- watchdog - work around for now is power cycling to go back to previous image
+- generate PIN for display
+- better boot screen instead of just black
+- rauc status mark-good without RW does not work but does not fail either
+
+to test:
+- /tmp has no write permission for normal users
 
 
 updates:
 
 - VL805 usb controller
-- rpi eeprom boot loader
+! rpi eeprom boot loader - will not be updated as it is a single point of failure.
 - rpi firmware on boot part
 - kernel and device tree
 - root partition incl everest
 - yeti controller FW
 
+Production:
+1 update eeprom with "sudo rpi-eeprom-update -a". It does not update automatically from here, if we really have to we can roll out an update that updates.
+2 flash complete image
+3 boot once with cable ethernet and wait for updates to install

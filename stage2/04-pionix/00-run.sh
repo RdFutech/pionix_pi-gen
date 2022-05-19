@@ -34,8 +34,9 @@ ln -s /run /var/run
 ln -s /tmp /var/spool
 ln -s /tmp /var/lock
 
-echo "nameserver 8.8.8.8" > /tmp/dhcpcd.resolv.conf
-ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
+#echo "nameserver 8.8.8.8" > /tmp/dhcpcd.resolv.conf
+#ln -s /tmp/dhcpcd.resolv.conf /etc/resolv.conf
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 systemctl enable update-hostname.service
 
