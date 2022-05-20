@@ -4,6 +4,7 @@ After=systemd-logind.service
 After=update-hostname.service
 After=rpi-eeprom-update.service
 After=ssh.service
+After=matrix-orbital.service
 After=nodered_init.service
 
 [Service]
