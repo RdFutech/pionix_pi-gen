@@ -15,6 +15,8 @@ install -m 755 files/rw "${ROOTFS_DIR}/usr/bin"
 
 install -m 440 files/sudoers "${ROOTFS_DIR}/etc"
 
+install -m 644 files/create-resolv-conf.service "${ROOTFS_DIR}/lib/systemd/system/"
+
 # fix VIM mouse support
 cp "files/vimrc" "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.vimrc"
 
@@ -67,5 +69,8 @@ systemctl enable read-only-root.service
 rm -rf /etc/wireguard
 ln -s /mnt/user_data/etc/wireguard /etc/wireguard
 systemctl enable wg-quick@wg0.service
+systemctl enable create-resolv-conf.service
+chmod 1777 /tmp
+sudo rm -rf /var/spool && sudo mkdir /var/spool && sudo chmod 755 /var/spool
 EOF
 

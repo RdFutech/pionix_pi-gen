@@ -20,7 +20,7 @@ if [ $RET -eq 0 ]; then
   METAU=$DOWNLOADDIR/update.meta
 else
   echo "Error: Download failed for https://pionix-update.de/$HWIDS/$CHANNEL/current.meta?current_ver=$VERSIONS"
-  exit 5
+  exit 1
 fi
 
 HWIDU=`jq -r ".update.hwid" $METAU`
@@ -44,11 +44,11 @@ if [ $HWIDU == $HWIDS ]; then
       install_update $DOWNLOADDIR/update.raucb --reboot-delete
     else
       echo "Error: File download failed of URI: $DOWNLOADURI"
-      exit 4
+      exit 1
     fi
   else
     echo "Error: Update is not newer: $VERSIONU (currently installed $VERSIONS)"
-    exit 3
+    exit 0
   fi
 else
   echo Error: Update is for $HWIDU, but our system is $HWIDS.

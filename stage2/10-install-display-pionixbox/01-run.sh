@@ -5,7 +5,7 @@ install -m 644 files/display-app.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 # update font cache
 on_chroot <<EOF
-apt install -y ttf-mscorefonts-installer
+#apt install -y ttf-mscorefonts-installer
 fc-cache
 EOF
 

@@ -1,0 +1,15 @@
+[Unit]
+Description=Create an empty resolv.conf on user_data and mount bind
+DefaultDependencies=no
+After=mnt-user_data.mount
+Before=local-fs.target
+
+[Service]
+Type=oneshot
+ExecStartPre=mkdir -p /mnt/user_data/etc/
+ExecStartPre=touch /mnt/user_data/etc/resolv.conf
+ExecStart=mount /etc/resolv.conf
+
+[Install]
+WantedBy=multi-user.target
+

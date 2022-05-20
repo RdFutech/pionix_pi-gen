@@ -2,8 +2,6 @@ to fix:
 
 - include everest and update uC automatically including downgrades to make sure it fits the release version
 - non default pw for everest user
-- real PKI
-- network time sync
 
 ------- later
 - sync systemtime to RTC and back
@@ -15,17 +13,16 @@ to fix:
 - rauc status mark-good without RW does not work but does not fail either
 
 to test:
-- /tmp has no write permission for normal users
-
 
 updates:
 
-- VL805 usb controller
+! VL805 usb controller - via rpi eeprom update
+- network time sync
 ! rpi eeprom boot loader - will not be updated as it is a single point of failure.
 - rpi firmware on boot part
 - kernel and device tree
 - root partition incl everest
-- yeti controller FW
+X yeti controller FW
 
 Production:
 1 update eeprom with "sudo rpi-eeprom-update -a". It does not update automatically from here, if we really have to we can roll out an update that updates.
