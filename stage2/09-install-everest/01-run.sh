@@ -15,6 +15,7 @@ mkdir -p work
 on_chroot <<EOF
 systemctl enable mosquitto.service
 systemctl enable everest.service
+systemctl enable everest-dev.service
 EOF
 
 #install -m 644 files/yetiR1_0.5_firmware.bin "${ROOTFS_DIR}/opt/everest/modules/modules/YetiDriver"
