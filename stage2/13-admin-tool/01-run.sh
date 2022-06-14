@@ -1,7 +1,7 @@
 #!/bin/bash
 (cd /tmp
 git clone git@github.com:PionixInternal/everest-admin-tool.git
-cd everest-admin-tool/frontend
+cd everest-admin-tool
 git pull
 npm install
 npm run build
