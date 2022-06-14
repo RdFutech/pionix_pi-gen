@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-#install -m 755 files/install_update "${ROOTFS_DIR}/usr/bin"
+install -m 755 files/stm32flash "${ROOTFS_DIR}/usr/bin"
 #install -m 644 files/boot-mark-good.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 mkdir -p $WORK_DIR/everest
@@ -17,3 +17,4 @@ systemctl enable mosquitto.service
 systemctl enable everest.service
 EOF
 
+#install -m 644 files/yetiR1_0.5_firmware.bin "${ROOTFS_DIR}/opt/everest/modules/modules/YetiDriver"
