@@ -36,8 +36,15 @@ DESTDIR=${ROOTFS_DIR} make install
 )
 
 (
+cd $WORK_DIR/pionixbox
+git clone git@github.com:PionixInternal/pionixbox.git || true
+cd pionixbox
+git pull || true
+mkdir -p build && cd build
+cmake ..
+make install
  mkdir -p ${ROOTFS_DIR}/opt/displayapp
- cp -r files/flutter_assets/*  ${ROOTFS_DIR}/opt/displayapp
+ cp -r $WORK_DIR/pionixbox/pionixbox/build/dist/flutter_assets/*  ${ROOTFS_DIR}/opt/displayapp
 )
 
 on_chroot <<EOF
