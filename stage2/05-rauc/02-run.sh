@@ -4,7 +4,8 @@ install -m 755 files/install_update "${ROOTFS_DIR}/usr/bin"
 install -m 644 files/boot-mark-good.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 # install on HOST system as well
-apt install -y /tmp/pionix-rauc.deb
+# FIXME(kai): this is broken right now
+# apt install -y /tmp/pionix-rauc.deb
 cp /tmp/pionix-rauc.deb "${ROOTFS_DIR}"
 on_chroot <<EOF
 apt install -y /pionix-rauc.deb
