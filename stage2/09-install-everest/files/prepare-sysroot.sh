@@ -31,7 +31,8 @@ include_directories("${BOOST_DIR}" "${SYSROOT_DIR}/usr/include")
 link_directories("${SYSROOT_DIR}/usr/lib/arm-linux-gnueabihf")
 set(Boost_NO_SYSTEM_PATHS ON)
 set(BOOST_LIBRARYDIR "${SYSROOT_DIR}/usr/lib/arm-linux-gnueabihf")
-
+set(CMAKE_TRY_COMPILE_TARGET_TYPE "STATIC_LIBRARY")
+link_libraries(pthread)
 EOL
 
 if [[ -f sysroot_prepared ]]
