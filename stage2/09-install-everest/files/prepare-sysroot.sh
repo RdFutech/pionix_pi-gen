@@ -72,7 +72,7 @@ then
 fi
 
 cd openssl
-./Configure linux-generic32 shared --prefix=$OPENSSL_INSTALL_DIR --openssldir=$OPENSSL_INSTALL_DIR/openssl --cross-compile-prefix=/usr/bin/arm-linux-gnueabihf-
+./Configure linux-generic32 shared --prefix=$OPENSSL_INSTALL_DIR --openssldir=$OPENSSL_INSTALL_DIR
 make depend -j8
 make -j8
 make install
