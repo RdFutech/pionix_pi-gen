@@ -91,15 +91,22 @@ fi
 
 cd boost_1_74_0
 
+# we must go back to the host compiler for building the "b2" tool
+export CC=/usr/bin/gcc
+export CXX=/usr/bin/g++
+
 ./bootstrap.sh
 
 CONFIG_JAM=$(mktemp)
 
-echo "using gcc : arm : /usr/lib/ccache/arm-linux-gnueabihf-g++ ;" > "$CONFIG_JAM"
-
+echo "using gcc : arm : /usr/bin/arm-linux-gnueabihf-g++ ;" > "$CONFIG_JAM"
 ./b2 --user-config="$CONFIG_JAM" --with-system --with-filesystem --with-exception --with-log --with-program_options --with-date_time --no-samples --no-tests toolset=gcc-arm link=shared cxxflags=-fPIC
 
 cd $MAIN_DIR
+
+# here we can safely go back to the cross compiler
+export CC=/usr/bin/arm-linux-gnueabihf-gcc
+export CXX=/usr/bin/arm-linux-gnueabihf-g++
 
 touch sysroot_prepared
 
