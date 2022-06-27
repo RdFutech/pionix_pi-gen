@@ -1,8 +1,10 @@
 mosquitto
 openjdk-11-jre
 nodejs
+libnode-dev
 sqlite3
 libboost-program-options1.74.0
 libboost-log1.74.0
 rfkill
 iproute2
+libc6

@@ -1,6 +1,12 @@
 fontconfig
 libgbm1
+libgbm-dev
 libegl1
 libgles2
+libgles-dev
+libdrm-dev
 libinput10
+libinput-dev
 libxkbcommon0
+libxkbcommon-dev
+libsystemd-dev
