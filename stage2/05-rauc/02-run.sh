@@ -4,9 +4,12 @@ install -m 755 files/install_update "${ROOTFS_DIR}/usr/bin"
 install -m 644 files/boot-mark-good.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 # install on HOST system as well
-# FIXME(kai): this is broken right now
-# apt install -y /tmp/pionix-rauc.deb
-cp /tmp/pionix-rauc.deb "${ROOTFS_DIR}"
+ARM_INSTALL_DIR=$WORK_DIR/rauc-arm
+HOST_INSTALL_DIR=$WORK_DIR/rauc-host
+
+apt install -y "${HOST_INSTALL_DIR}/pionix-rauc.deb"
+
+cp "${ARM_INSTALL_DIR}/pionix-rauc.deb" "${ROOTFS_DIR}"
 on_chroot <<EOF
 apt install -y /pionix-rauc.deb
 rm /pionix-rauc.deb

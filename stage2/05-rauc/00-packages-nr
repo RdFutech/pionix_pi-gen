@@ -1,2 +1,10 @@
 dbus
 xz-utils
+libcurl4-openssl-dev
+libglib2.0-0
+libglib2.0-dev
+libjson-glib-1.0-0
+libjson-glib-dev
+libc6-dev
+libc6
+libssl1.1
