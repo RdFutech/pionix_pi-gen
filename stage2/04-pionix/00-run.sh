@@ -1,5 +1,9 @@
 #!/bin/bash -e
 
+if [ "${PIONIX_BUILD_SYSROOT}" = "1" ]; then
+    exit 0
+fi
+
 # change hostname to sth unique on first boot
 install -m 755 files/update-hostname.sh "${ROOTFS_DIR}/usr/bin"
 install -m 644 files/update-hostname.service "${ROOTFS_DIR}/lib/systemd/system/"

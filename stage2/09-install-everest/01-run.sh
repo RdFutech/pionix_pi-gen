@@ -41,6 +41,13 @@ ln -sf "$WORK_DIR/everest/sysroot/usr/lib" "$WORK_DIR/everest/sysroot/lib"
     ./prepare-sysroot.sh
 )
 
+if [ "${PIONIX_BUILD_SYSROOT}" = "1" ]; then
+    echo "finished preparing sysroot located at $MAIN/sysroot"
+    echo "please use the toolchain file located at $WORK_DIR/everest/toolchain.cmake like this:"
+    echo "cmake .. -DCMAKE_TOOLCHAIN_FILE=$WORK_DIR/everest/toolchain.cmake -DLIBLOG_CROSS_COMPILE=ON"
+    exit 1
+fi
+
 (
 cd $WORK_DIR/everest
 git clone git@github.com:PionixInternal/everest-deploy-devkit.git || true
