@@ -28,7 +28,7 @@ echo "system0" > "${ROOTFS_DIR}/mnt/factory_data/rauc/primary"
 echo "good" > "${ROOTFS_DIR}/mnt/factory_data/rauc/system0"
 
 #
-on_chroot <<EOF
-systemctl enable boot-mark-good.service
-EOF
+#on_chroot <<EOF
+#systemctl enable boot-mark-good.service
+#EOF
 

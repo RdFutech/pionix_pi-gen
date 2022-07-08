@@ -18,6 +18,6 @@ cat > /etc/update.meta <<XOF
   }
 }
 XOF
-systemctl enable ota-update.timer
+#systemctl enable ota-update.timer
 EOF
 
