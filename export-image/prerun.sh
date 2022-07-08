@@ -10,7 +10,7 @@ if [ "${NO_PRERUN_QCOW2}" = "0" ]; then
 	rm -rf "${ROOTFS_DIR}"
 	mkdir -p "${ROOTFS_DIR}"
 
-	BOOT_SIZE="$((2*256 * 1024 * 1024))"
+	BOOT_SIZE="$((1*256 * 1024 * 1024))"
 	#ROOT_SIZE=$(du --apparent-size -s "${EXPORT_ROOTFS_DIR}" --exclude var/cache/apt/archives --exclude boot --block-size=1 | cut -f 1)
 
 	# All partition sizes and starts will be aligned to this size
@@ -30,26 +30,27 @@ if [ "${NO_PRERUN_QCOW2}" = "0" ]; then
 	ROOT_PART_START=$((BOOT_PART_START + BOOT_PART_SIZE))
 	# CC: use a fixed value based on the SD card size we support
 	#ROOT_PART_SIZE=$(((ROOT_SIZE + ROOT_MARGIN + ALIGN  - 1) / ALIGN * ALIGN))
-	ROOT_PART_SIZE=$((26 * 256*1024*1024))
+	ROOT_PART_SIZE=$((16 * 256*1024*1024))
+	ROOT2_PART_SIZE=$((16 * 1024*1024))
 	ROOT2_PART_START=$((BOOT_PART_START + BOOT_PART_SIZE + ROOT_PART_SIZE))
 
 	# DATAF is the factory defaults settings overlay that is created once during production.
 	# It contains e.g. the default ssh password and box serial number etc.
 	# Always RO after initial factory setup.
-	DATAF_PART_SIZE=$((64 * 1024 * 1024))
+	DATAF_PART_SIZE=$((16 * 1024 * 1024))
 
 	# DATA is the user overlay. Can be formatted anytime to reset to factory defaults.
 	# contains all settings such as WiFi credentials, ssh passwd changes, everest ocpp settings etc.
 	# normally read only, but can be mounted rw during runtime to do changes.
 	DATA_PART_SIZE=$((4 * 256 * 1024 * 1024))
 
-	EXTENDED_PART_START=$((ROOT2_PART_START + ROOT_PART_SIZE))
+	EXTENDED_PART_START=$((ROOT2_PART_START + ROOT2_PART_SIZE))
 	EXTENDED_PART_SIZE=$((2*ALIGN + DATAF_PART_SIZE + DATA_PART_SIZE))
 	
 	DATAF_PART_START=$((EXTENDED_PART_START + ALIGN))
 	DATA_PART_START=$((DATAF_PART_START + DATAF_PART_SIZE + ALIGN))
 
-	IMG_SIZE=$((BOOT_PART_START + BOOT_PART_SIZE + 2*ROOT_PART_SIZE + EXTENDED_PART_SIZE))
+	IMG_SIZE=$((BOOT_PART_START + BOOT_PART_SIZE + ROOT_PART_SIZE + ROOT2_PART_SIZE + EXTENDED_PART_SIZE))
 
 	truncate -s "${IMG_SIZE}" "${IMG_FILE}"
 
@@ -57,7 +58,7 @@ if [ "${NO_PRERUN_QCOW2}" = "0" ]; then
 	parted --script "${IMG_FILE}" unit B mkpart primary fat32 "${BOOT_PART_START}" "$((BOOT_PART_START + BOOT_PART_SIZE - 1))"
 	parted --script "${IMG_FILE}" unit B mkpart primary ext4 "${ROOT_PART_START}" "$((ROOT_PART_START + ROOT_PART_SIZE - 1))"
 	# create the secondary root partition of the same size
-	parted --script "${IMG_FILE}" unit B mkpart primary ext4 "${ROOT2_PART_START}" "$((ROOT2_PART_START + ROOT_PART_SIZE - 1))"
+	parted --script "${IMG_FILE}" unit B mkpart primary ext4 "${ROOT2_PART_START}" "$((ROOT2_PART_START + ROOT2_PART_SIZE - 1))"
 	# create the extended and logical partitions
 	parted --script "${IMG_FILE}" unit B mkpart extended "${EXTENDED_PART_START}" "$((EXTENDED_PART_START + EXTENDED_PART_SIZE - 1))"
 	parted --script "${IMG_FILE}" unit B mkpart logical "${DATAF_PART_START}" "$((DATAF_PART_START + DATAF_PART_SIZE - 1))"
