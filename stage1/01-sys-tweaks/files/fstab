@@ -7,5 +7,6 @@ tmpfs           /tmp            tmpfs   nosuid,nodev,mode=1777         0       0
 tmpfs           /var/log        tmpfs   nosuid,nodev         0       0
 tmpfs           /var/tmp        tmpfs   nosuid,nodev,mode=1777         0       0
 tmpfs           /var/spool      tmpfs   defaults,noatime,nosuid,nodev,noexec,mode=0755   0  0
+tmpfs           /var/lib/systemd/coredump      tmpfs   defaults,noatime,nosuid,nodev,noexec,mode=0755   0  0
 /mnt/user_data/etc/resolv.conf /etc/resolv.conf none defaults,bind,noauto,x-systemd.requires-mounts-for=/mnt/user_data 0 0
 
