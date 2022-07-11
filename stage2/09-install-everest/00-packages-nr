@@ -17,3 +17,5 @@ libboost-date-time1.74-dev
 libboost-system1.74.0
 libboost-system1.74-dev
 libboost-exception1.74-dev
+libpugixml1v5
+libpugixml-dev
