@@ -1,0 +1,18 @@
+IMG_NAME='belaybox'
+STAGE_LIST='stage0 stage1 stage2'
+ENABLE_SSH=1
+TARGET_HOSTNAME='BelayBox' 
+FIRST_USER_NAME='everest'
+FIRST_USER_PASS='everest'
+WPA_ESSID='mywifi'
+WPA_PASSWORD='password'
+WPA_COUNTRY='DE'
+DEPLOY_COMPRESSION='gz'
+IMG_DESCRIPTION='Cool new update'
+HW_ID='belayboxr1'
+# this is where the full update goes on the server.
+# should be unstable, testing or stable
+UPDATE_CHANNEL='unstable'
+# this selects which everest packages to install
+# should be unstable, testing or stable
+UPDATE_EVEREST_CHANNEL='unstable'
