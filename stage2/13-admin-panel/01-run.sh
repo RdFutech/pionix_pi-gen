@@ -1,8 +1,9 @@
 #!/bin/bash
 (cd /tmp
-git clone git@github.com:PionixInternal/everest-admin-tool.git
-cd everest-admin-tool
-git pull
+rm -rf /tmp/everest-admin-panel
+git clone git@github.com:EVerest/everest-admin-panel.git
+cd everest-admin-panel
+#git pull
 npm install
 npm run build
 # target directory is /var/www/html
