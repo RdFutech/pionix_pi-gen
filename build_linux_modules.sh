@@ -2,7 +2,8 @@
 mkdir -p work_linux
 cd work_linux
 #git clone --depth=1 --branch 1.20220331 https://github.com/corneliusclaussen/linux.git
-git clone --depth=1 --branch 1.20220331 https://github.com/raspberrypi/linux
+#git clone --depth=1 --branch 1.20220331 https://github.com/raspberrypi/linux
+git clone --depth=1 --branch 1.20220811 https://github.com/raspberrypi/linux
 cd linux
 echo "CONFIG_DM_VERITY=m" >> arch/arm/configs/bcm2711_defconfig
 echo "CONFIG_DM_VERITY_VERIFY_ROOTHASH_SIG=y" >> arch/arm/configs/bcm2711_defconfig
