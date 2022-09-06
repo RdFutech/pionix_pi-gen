@@ -17,6 +17,15 @@ systemctl enable mosquitto.service
 systemctl enable everest.service
 systemctl enable everest-dev.service
 ln -s /mnt/user_data/user-config/ocpp /opt/everest/ocpp/user_config
+
+if [ -L "/etc/mosquitto/conf.d" ]; then
+    echo Rebuilding over existing work directory, skipping mosquitto config magic
+else
+    echo Clean build, symlinking mosquitto config
+    mkdir -p /mnt/user_data/etc/mosquitto/conf.d
+    rm -rf /etc/mosquitto/conf.d
+    ln -s /mnt/user_data/etc/mosquitto/conf.d /etc/mosquitto/conf.d
+fi
 EOF
 
 #install -m 644 files/yetiR1_0.5_firmware.bin "${ROOTFS_DIR}/opt/everest/modules/modules/YetiDriver"
