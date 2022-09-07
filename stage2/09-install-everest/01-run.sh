@@ -16,7 +16,7 @@ on_chroot <<EOF
 systemctl enable mosquitto.service
 systemctl enable everest.service
 systemctl enable everest-dev.service
-ln -s /mnt/user_data/user-config/ocpp /opt/everest/ocpp/user_config
+ln -s /mnt/user_data/user-config/ocpp /opt/everest/share/everest/ocpp/
 
 if [ -L "/etc/mosquitto/conf.d" ]; then
     echo Rebuilding over existing work directory, skipping mosquitto config magic
