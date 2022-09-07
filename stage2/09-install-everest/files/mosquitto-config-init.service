@@ -1,0 +1,14 @@
+[Unit]
+Description=Create mosquitto default conf.d if it does not exist yet
+Before=mosquitto.service
+After=mnt-user_data.mount
+ConditionPathExists=!/mnt/user_data/etc/mosquitto/conf.d
+
+[Service]
+Type=oneshot
+ExecStart=mkdir /mnt/user_data/etc/mosquitto/conf.d
+ExecStart=cp /etc/mosquitto/config.d-factory-default/* /mnt/user_data/etc/mosquitto/conf.d
+
+[Install]
+WantedBy=multi-user.target
+

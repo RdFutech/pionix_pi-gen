@@ -2,6 +2,7 @@
 
 install -m 755 files/stm32flash "${ROOTFS_DIR}/usr/bin"
 #install -m 644 files/boot-mark-good.service "${ROOTFS_DIR}/lib/systemd/system/"
+install -m 644 files/mosquitto-config-init.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 mkdir -p $WORK_DIR/everest
 (
@@ -16,6 +17,7 @@ on_chroot <<EOF
 systemctl enable mosquitto.service
 systemctl enable everest.service
 systemctl enable everest-dev.service
+systemctl enable mosquitto-config-init.service
 ln -s /mnt/user_data/user-config/ocpp /opt/everest/share/everest/ocpp/
 
 if [ -L "/etc/mosquitto/conf.d" ]; then
@@ -23,7 +25,7 @@ if [ -L "/etc/mosquitto/conf.d" ]; then
 else
     echo Clean build, symlinking mosquitto config
     mkdir -p /mnt/user_data/etc/mosquitto/conf.d
-    rm -rf /etc/mosquitto/conf.d
+    mv /etc/mosquitto/conf.d /etc/mosquitto/conf.d-factory-default
     ln -s /mnt/user_data/etc/mosquitto/conf.d /etc/mosquitto/conf.d
 fi
 EOF
