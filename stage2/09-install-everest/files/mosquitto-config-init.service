@@ -6,7 +6,7 @@ ConditionPathExists=!/mnt/user_data/etc/mosquitto/conf.d
 
 [Service]
 Type=oneshot
-ExecStart=mkdir /mnt/user_data/etc/mosquitto/conf.d
+ExecStart=mkdir -p /mnt/user_data/etc/mosquitto/conf.d
 ExecStart=cp /etc/mosquitto/config.d-factory-default/* /mnt/user_data/etc/mosquitto/conf.d
 
 [Install]
