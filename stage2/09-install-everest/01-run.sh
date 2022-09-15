@@ -30,4 +30,4 @@ else
 fi
 EOF
 
-#install -m 644 files/yetiR1_0.5_firmware.bin "${ROOTFS_DIR}/opt/everest/modules/modules/YetiDriver"
+#install -m 644 files/yetiR1_0.6_firmware.bin "${ROOTFS_DIR}/opt/everest/modules/modules/YetiDriver"
