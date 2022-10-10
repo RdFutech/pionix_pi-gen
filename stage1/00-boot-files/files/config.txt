@@ -75,12 +75,11 @@ disable_overscan=1
 # (e.g. for USB device mode) or if USB support is not required.
 otg_mode=1
 dtoverlay=uart5
-config_hdmi_boost=8
 dtoverlay=spi1-2cs
 dtoverlay=mcp2515-can0-spi1,oscillator=16000000,interrupt=24
 dtoverlay=dwc2,dr_mode=host
 dtoverlay=i2c-rtc,pcf85063,i2c_csi_dsi,addr=0x51
-
+dtparam=ant2
 
 [all]
 dtoverlay=disable-bt
