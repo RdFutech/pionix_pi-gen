@@ -9,7 +9,9 @@ npm run build
 # target directory is /var/www/html
 rm ${ROOTFS_DIR}/var/www/html/*
 cp -r dist/* ${ROOTFS_DIR}/var/www/html
+cp files/lighttpd.conf ${ROOTFS_DIR}/etc/lighttpd
 )
 on_chroot <<EOF
 systemctl enable lighttpd.service
+ln -s /tmp/logs /var/www/html/logs
 EOF
