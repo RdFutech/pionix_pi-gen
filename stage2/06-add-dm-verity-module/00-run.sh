@@ -5,11 +5,11 @@
 
 # install module
 #cp "files/5.15.32-v7l+/dm-verity.ko" "${ROOTFS_DIR}/lib/modules/5.15.32-v7l+/kernel/drivers/md/"
-cp "files/5.15.61-v7l+/dm-verity.ko" "${ROOTFS_DIR}/lib/modules/5.15.61-v7l+/kernel/drivers/md/"
-cp "files/5.15.61-v7l+/*.dtbo" "${ROOTFS_DIR}/boot/overlays/"
+cp "files/5.15.76-v7l+/dm-verity.ko" "${ROOTFS_DIR}/lib/modules/5.15.76-v7l+/kernel/drivers/md/"
+cp "files/5.15.76-v7l+/*.dtbo" "${ROOTFS_DIR}/boot/overlays/"
 
 on_chroot <<EOF
-depmod -a 5.15.61-v7l+
+depmod -a 5.15.76-v7l+
 echo dm-verity >> /etc/modules
 EOF
 
