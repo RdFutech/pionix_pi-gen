@@ -1,5 +1,5 @@
 #!/bin/bash
-echo Pionix BelayBox update installer v1.0
+echo Pionix Futech update installer v1.0
 
 if [ $1 == "--reboot" ]; then
    sudo reboot '0 tryboot'

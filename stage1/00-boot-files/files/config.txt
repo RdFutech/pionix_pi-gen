@@ -68,6 +68,7 @@ disable_overscan=1
 [pi4]
 # Run as fast as firmware / board allows
 #arm_boost=1
+dtoverlay=mcp2515-can1,oscillator=8000000,interrupt=26
 
 [cm4]
 # Enable host mode on the 2711 built-in XHCI USB controller.
@@ -94,4 +95,5 @@ hdmi_mode=87
 hdmi_cvt=800 480 60 6 0 0 0
 max_usb_current=1
 disable_splash=1
+
 
