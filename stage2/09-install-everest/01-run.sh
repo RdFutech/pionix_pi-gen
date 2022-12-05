@@ -16,6 +16,7 @@ mkdir -p work
 on_chroot <<EOF
 systemctl enable mosquitto.service
 systemctl enable everest.service
+systemctl enable everest-rpi.service
 systemctl enable everest-dev.service
 systemctl enable mosquitto-config-init.service
 ln -s /mnt/user_data/user-config/ocpp /opt/everest/share/everest/ocpp/
