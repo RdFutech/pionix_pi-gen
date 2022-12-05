@@ -11,3 +11,4 @@ iproute2
 systemd-coredump
 libpugixml1v5
 gdb
+pip
