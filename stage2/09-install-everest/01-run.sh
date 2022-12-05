@@ -29,7 +29,7 @@ else
     mv /etc/mosquitto/conf.d /etc/mosquitto/conf.d-factory-default
     ln -s /mnt/user_data/etc/mosquitto/conf.d /etc/mosquitto/conf.d
 fi
-pip3 install py4j aiofile cryptography psutil pydantic environs
+pip3 install py4j environs
 EOF
 
 #install -m 644 files/yetiR1_0.6_firmware.bin "${ROOTFS_DIR}/opt/everest/modules/modules/YetiDriver"

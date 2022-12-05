@@ -11,4 +11,8 @@ iproute2
 systemd-coredump
 libpugixml1v5
 gdb
+python3-cryptography
+python3-psutil
+python3-pydantic
+python3-aiofiles
 pip
