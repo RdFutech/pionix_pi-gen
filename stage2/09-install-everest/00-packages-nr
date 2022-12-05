@@ -14,5 +14,7 @@ gdb
 python3-cryptography
 python3-psutil
 python3-pydantic
-python3-aiofiles
+python3-netifaces
+python3-typing-extensions
+python3-dateutil
 pip
