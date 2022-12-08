@@ -1,5 +1,5 @@
 mosquitto
-openjdk-11-jre
+openjdk-17-jre
 nodejs
 sqlite3
 libboost-program-options1.74.0
