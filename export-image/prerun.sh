@@ -30,7 +30,7 @@ if [ "${NO_PRERUN_QCOW2}" = "0" ]; then
 	ROOT_PART_START=$((BOOT_PART_START + BOOT_PART_SIZE))
 	# CC: use a fixed value based on the SD card size we support
 	#ROOT_PART_SIZE=$(((ROOT_SIZE + ROOT_MARGIN + ALIGN  - 1) / ALIGN * ALIGN))
-	ROOT_PART_SIZE=$((26 * 256*1024*1024))
+	ROOT_PART_SIZE=$((415 * 16*1024*1024))
 	ROOT2_PART_START=$((BOOT_PART_START + BOOT_PART_SIZE + ROOT_PART_SIZE))
 
 	# DATAF is the factory defaults settings overlay that is created once during production.
