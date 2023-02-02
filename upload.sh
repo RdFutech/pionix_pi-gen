@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UPDATE_CHANNEL="unstable"
+UPDATE_CHANNEL="basecamp"
 
 FN=${1%.*}
 

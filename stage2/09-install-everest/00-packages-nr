@@ -24,4 +24,5 @@ libevent-pthreads-2.1-7
 libgpiod2
 gpiod
 raspi-gpio
-
+fluent-bit
+sshpass
