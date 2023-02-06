@@ -16,8 +16,8 @@ cd $WORK_DIR/pionixbox
 git clone https://github.com/ardera/flutter-engine-binaries-for-arm.git || true
 cd flutter-engine-binaries-for-arm
 git pull || true
-#git checkout deaf44bacae971edfa1ffe84ba39874118a622cc
-git checkout 917589cb12829cd58779af9b36a8114bca6c962b
+git checkout deaf44bacae971edfa1ffe84ba39874118a622cc
+#git checkout 917589cb12829cd58779af9b36a8114bca6c962b
 #sudo ./install.sh: dont run this as it will install on the host OS!
 ARM=arm
 install ./$ARM/libflutter_engine.so.* ./$ARM/icudtl.dat ${ROOTFS_DIR}/usr/lib
@@ -29,8 +29,8 @@ cd $WORK_DIR/pionixbox
 git clone https://github.com/ardera/flutter-pi.git || true
 cd flutter-pi
 git pull || true
-#git checkout a11107b95920861e4bb8f19c4e71cb870c3aa42e
-git checkout 20483a1195c88bd44ff48be45582deb8cc3b1fb7
+git checkout a11107b95920861e4bb8f19c4e71cb870c3aa42e
+#git checkout 20483a1195c88bd44ff48be45582deb8cc3b1fb7
 mkdir -p build && cd build
 cmake ..
 make -j8
