@@ -19,3 +19,6 @@ python3-typing-extensions
 python3-dateutil
 pip
 tcpdump
+libevent-2.1-7
+libevent-pthreads-2.1-7
+
