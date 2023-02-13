@@ -6,6 +6,7 @@ install -m 644 files/mosquitto-config-init.service "${ROOTFS_DIR}/lib/systemd/sy
 install -m 644 files/fluent-bit.service "${ROOTFS_DIR}/lib/systemd/system/"
 install -m 644 files/fluent-bit.conf "${ROOTFS_DIR}/etc/fluent-bit/"
 install -D -m 644 files/known_hosts "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.ssh/known_hosts"
+install -D -m 644 files/known_hosts "${ROOTFS_DIR}/root/.ssh/known_hosts"
 
 mkdir -p $WORK_DIR/everest
 (
