@@ -4,11 +4,11 @@
 # use build_linux_modules.sh from root of this repo to build a new kernel module
 
 # install module
-cp "files/5.15.84-v7l+/dm-verity.ko" "${ROOTFS_DIR}/lib/modules/5.15.84-v7l+/kernel/drivers/md/"
-cp "files/5.15.84-v7l+/*.dtbo" "${ROOTFS_DIR}/boot/overlays/"
+cp "files/6.1.19-v7l+/dm-verity.ko" "${ROOTFS_DIR}/lib/modules/6.1.19-v7l+/kernel/drivers/md/"
+cp "files/6.1.19-v7l+/*.dtbo" "${ROOTFS_DIR}/boot/overlays/"
 
 on_chroot <<EOF
-depmod -a 5.15.84-v7l+
+depmod -a 6.1.19-v7l+
 echo dm-verity >> /etc/modules
 EOF
 
