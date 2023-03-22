@@ -8,7 +8,7 @@ WPA_ESSID='mywifi'
 WPA_PASSWORD='password'
 WPA_COUNTRY='DE'
 DEPLOY_COMPRESSION='gz'
-IMG_DESCRIPTION='Cool new update'
+IMG_DESCRIPTION='PoC version for AC autocharge based on SLAC mac address'
 HW_ID='belayboxr1'
 # this is where the full update goes on the server.
 # should be unstable, testing or stable
