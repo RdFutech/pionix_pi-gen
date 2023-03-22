@@ -8,7 +8,7 @@ mkdir -p $WORK_DIR/everest
 (
 cd $WORK_DIR/everest
 git clone git@github.com:PionixInternal/everest-deploy-devkit.git || true
-cd everest-deploy-devkit/belayboxr1
+cd everest-deploy-devkit/poc_ac_autocharge
 git pull || true
 mkdir -p work
 ./build_and_install.sh work ${ROOTFS_DIR}

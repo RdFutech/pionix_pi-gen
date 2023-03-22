@@ -1,6 +1,6 @@
 #!/bin/bash
 
-UPDATE_CHANNEL="unstable"
+UPDATE_CHANNEL="poc_ac_autocharge"
 
 FN=${1%.*}
 
