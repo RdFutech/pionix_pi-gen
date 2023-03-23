@@ -1,5 +1,5 @@
 #!/bin/bash -e
-cd /home/cornelius/pi-gen
+cd /home/cornelius/poc_ac_autocharge/pi-gen
 sudo rm -rf work
 sudo rm -rf deploy
 sudo ./build.sh
