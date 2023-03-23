@@ -15,7 +15,7 @@ export KERNEL=kernel7l
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bcm2711_defconfig
 #make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- prepare -j4
 #make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules_prepare -j4
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs -j4
+make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage modules dtbs -j64
 #make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- SUBDIRS=scripts/mod -j4
 #make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- SUBDIRS=drivers/dm -j4
 #make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- deb-pkg -j4
