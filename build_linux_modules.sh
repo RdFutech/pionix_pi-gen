@@ -6,8 +6,9 @@ cd work_linux
 #git clone --depth=1 --branch 1.20220811 https://github.com/raspberrypi/linux
 #git clone --depth=1 --branch 1.20220830 https://github.com/raspberrypi/linux
 #git clone --depth=1 --branch 1.20221104 https://github.com/raspberrypi/linux
-git clone --depth=1 --branch 1.20230317 https://github.com/raspberrypi/linux
+git clone --depth=1 --branch rpi-6.1.y https://github.com/raspberrypi/linux
 cd linux
+git checkout afb5e98488aed7017b9bf321b575d0177feb7ed 
 echo "CONFIG_DM_VERITY=m" >> arch/arm/configs/bcm2711_defconfig
 echo "CONFIG_DM_VERITY_VERIFY_ROOTHASH_SIG=y" >> arch/arm/configs/bcm2711_defconfig
 #echo "CONFIG_DM_VERITY_FEC=n" >> arch/arm/configs/bcm2711_defconfig
