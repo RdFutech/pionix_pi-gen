@@ -1,7 +1,7 @@
-IMG_NAME='belaybox'
+IMG_NAME='umwc'
 STAGE_LIST='stage0 stage1 stage2'
 ENABLE_SSH=1
-TARGET_HOSTNAME='BelayBox' 
+TARGET_HOSTNAME='uMWC' 
 FIRST_USER_NAME='everest'
 FIRST_USER_PASS='everest'
 WPA_ESSID='mywifi'
@@ -9,7 +9,7 @@ WPA_PASSWORD='password'
 WPA_COUNTRY='DE'
 DEPLOY_COMPRESSION='gz'
 IMG_DESCRIPTION='Cool new update with basecamp'
-HW_ID='belayboxr1'
+HW_ID='umwcr1'
 # this is where the full update goes on the server.
 # should be unstable, testing or stable
 UPDATE_CHANNEL='basecamp'

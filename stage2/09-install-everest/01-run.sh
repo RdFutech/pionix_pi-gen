@@ -12,7 +12,7 @@ mkdir -p $WORK_DIR/everest
 (
 cd $WORK_DIR/everest
 git clone git@github.com:PionixInternal/everest-deploy-devkit.git || true
-cd everest-deploy-devkit/belayboxr1_basecamp
+cd everest-deploy-devkit/umwc
 git pull || true
 mkdir -p work
 ./build_and_install.sh work ${ROOTFS_DIR}
@@ -20,7 +20,6 @@ mkdir -p work
 on_chroot <<EOF
 systemctl enable mosquitto.service
 systemctl enable everest.service
-systemctl enable everest-rpi.service
 systemctl enable everest-dev.service
 systemctl enable fluent-bit.service
 systemctl enable mosquitto-config-init.service
