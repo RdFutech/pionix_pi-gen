@@ -14,5 +14,5 @@ cp files/01-dirlisting.conf ${ROOTFS_DIR}/etc/lighttpd/conf-enabled
 #)
 on_chroot <<EOF
 systemctl enable lighttpd.service
-ln -s /tmp/logs /var/www/html/logs
+ln -s /mnt/user_data/logs /var/www/html/logs
 EOF
