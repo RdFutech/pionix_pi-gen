@@ -1,0 +1,13 @@
+[Unit]
+Description=Testing OCPP CSMS
+After=network.target
+After=mosquitto.service
+
+[Service]
+Type=simple
+ExecStartPre=sleep 5
+ExecStart=python3 /opt/ocpp-csms/central_system.py /opt/everest/libexec/everest/3rd_party/josev/ /mnt/user_data/opt/everest/etc/everest/certs
+
+[Install]
+WantedBy=multi-user.target
+
