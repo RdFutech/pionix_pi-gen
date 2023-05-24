@@ -25,7 +25,8 @@ git pull
 npm install
 npm run build
 # target directory is /var/www/html/wifi
-rm ${ROOTFS_DIR}/var/www/html/wifi/*
-mkdir -p ${ROOTFS_DIR}/var/www/html/wifi
-cp -r dist/* ${ROOTFS_DIR}/var/www/html/wifi
+#rm ${ROOTFS_DIR}/var/www/html/wifi/*
+#mkdir -p ${ROOTFS_DIR}/var/www/html/wifi
+#cp -r dist/* ${ROOTFS_DIR}/var/www/html/wifi
+cp -r dist/* ${ROOTFS_DIR}/var/www/html
 )
