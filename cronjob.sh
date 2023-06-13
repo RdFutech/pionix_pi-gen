@@ -1,5 +1,5 @@
 #!/bin/bash -e
-cd /home/cornelius/basecamp/pi-gen
+cd /home/cornelius/amperfied/pi-gen
 sudo rm -rf work
 sudo rm -rf deploy
 sudo ./build.sh

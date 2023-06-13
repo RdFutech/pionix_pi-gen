@@ -20,7 +20,6 @@ mkdir -p work
 on_chroot <<EOF
 systemctl enable mosquitto.service
 systemctl enable everest.service
-systemctl enable everest-rpi.service
 systemctl enable everest-dev.service
 systemctl enable fluent-bit.service
 systemctl enable mosquitto-config-init.service
