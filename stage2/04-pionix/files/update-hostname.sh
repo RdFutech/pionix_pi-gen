@@ -7,9 +7,9 @@ echo Current hostname $HN
 SERIAL_NUMBER_FILE="/mnt/factory_data/serial_number"
 if [ -f "$SERIAL_NUMBER_FILE" ]; then
     echo "Using serial number for hostname"
-    sudo echo belay-`cat "$SERIAL_NUMBER_FILE"` > /tmp/hostname
+    sudo echo ilucharge_ccs_`cat "$SERIAL_NUMBER_FILE"` > /tmp/hostname
 else
-    sudo echo belay-`cat /sys/class/net/eth0/address | awk '{split($0,a,":"); print a[5] a[6]}'` > /tmp/hostname
+    sudo echo ilucharge_ccs_`cat /sys/class/net/eth0/address | awk '{split($0,a,":"); print a[5] a[6]}'` > /tmp/hostname
 fi
 NHN=`cat /tmp/hostname`
 echo New hostname $NHN
