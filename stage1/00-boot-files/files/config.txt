@@ -77,6 +77,7 @@ otg_mode=1
 dtoverlay=uart5
 dtoverlay=spi1-2cs
 dtoverlay=mcp2515-can0-spi1,oscillator=16000000,interrupt=24
+dtoverlay=tpm-slb9670-spi1
 dtoverlay=dwc2,dr_mode=host
 dtoverlay=i2c-rtc,pcf85063,i2c_csi_dsi,addr=0x51
 dtparam=ant2
