@@ -4,7 +4,8 @@ git clone https://github.com/rauc/rauc.git
 cd rauc
 git checkout master
 git pull
-git checkout v1.6
+#git checkout v1.6
+git checkout v1.10.1
 ./autogen.sh
 ./configure --prefix=/usr --enable-streaming
 make -j4
