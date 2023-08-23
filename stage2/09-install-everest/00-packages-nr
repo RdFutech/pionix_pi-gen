@@ -6,6 +6,7 @@ libboost-program-options1.74.0
 libboost-log1.74.0
 libboost-chrono1.74.0
 libboost-system1.74.0
+libboost-atomic1.74.0
 rfkill
 iproute2
 systemd-coredump
