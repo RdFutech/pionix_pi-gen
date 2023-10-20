@@ -12,7 +12,7 @@ cat /etc/resolv.conf
 echo 2-------------------------------------------------------------------------
 curl -sL https://raw.githubusercontent.com/node-red/linux-installers/master/deb/update-nodejs-and-nodered -o nodered.sh
 chmod a+x nodered.sh
-./nodered.sh --confirm-root --confirm-install --confirm-pi --node14 || true
+./nodered.sh --confirm-root --confirm-install --confirm-pi || true
 EOF
 
 # replace systemd unit file with our own version to not run nodered as root user
