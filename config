@@ -12,7 +12,7 @@ IMG_DESCRIPTION='Cool new update with basecamp'
 HW_ID='umwcr1'
 # this is where the full update goes on the server.
 # should be unstable, testing or stable
-UPDATE_CHANNEL='basecamp'
+UPDATE_CHANNEL='stable'
 # this selects which everest packages to install
 # should be unstable, testing or stable
-UPDATE_EVEREST_CHANNEL='basecamp'
+UPDATE_EVEREST_CHANNEL='stable'
