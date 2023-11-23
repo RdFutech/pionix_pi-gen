@@ -1,0 +1,13 @@
+[Unit]
+Description=EVerest Display App
+After=network.target
+After=mosquitto.service
+
+[Service]
+Type=simple
+ExecStartPre=sleep 8
+ExecStart=flutter-pi --release /opt/displayapp/
+
+[Install]
+WantedBy=multi-user.target
+

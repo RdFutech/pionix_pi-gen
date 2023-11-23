@@ -1,0 +1,8 @@
+cmake
+autoconf
+automake
+build-essential
+pkg-config
+libdbus-1-dev
+libglib2.0-dev
+python3-dev
