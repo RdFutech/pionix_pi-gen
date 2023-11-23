@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-install file/umwc-init-mnt-userdata.tgz "${ROOTFS_DIR}/opt/everest/"
+install -m 644 files/umwc-init-mnt-userdata.tgz "${ROOTFS_DIR}/opt/everest/"
+
 mkdir -p $WORK_DIR/pionixctrl
 
 (
