@@ -15,6 +15,7 @@ cd $WORK_DIR/everest
 git clone git@github.com:PionixInternal/everest-deploy-devkit.git || true
 cd everest-deploy-devkit/futech
 git pull || true
+git checkout futech_prod
 mkdir -p work
 ./build_and_install.sh work ${ROOTFS_DIR}
 )
