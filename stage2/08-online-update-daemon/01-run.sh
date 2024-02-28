@@ -14,7 +14,7 @@ cat > /etc/update.meta <<XOF
     "hwid": "${HW_ID}",
     "version": ${IMG_TIMESTAMP},
     "description": "${IMG_DESCRIPTION}",
-    "download_uri": "https://pionix-update.de/${HW_ID}/${UPDATE_CHANNEL}/${IMG_FILENAME}.pnx"
+    "download_uri": "http://pt.futech.be/firmware/ilucharge2/${HW_ID}/${UPDATE_CHANNEL}/${IMG_FILENAME}.pnx"
   }
 }
 XOF

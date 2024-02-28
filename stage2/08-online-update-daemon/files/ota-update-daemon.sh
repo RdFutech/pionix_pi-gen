@@ -14,12 +14,12 @@ VERSIONS=`jq -r ".update.version" $METAS`
 DOWNLOADDIR="/mnt/user_data/update"
 mkdir -p "/mnt/user_data/update"
 
-curl "https://pionix-update.de/$HWIDS/$CHANNEL/current.meta?current_ver=$VERSIONS" --output $DOWNLOADDIR/update.meta
+curl "http://pt.futech.be/firmware/ilucharge2/$HWIDS/$CHANNEL/current.meta?current_ver=$VERSIONS" --output $DOWNLOADDIR/update.meta
 RET=$?
 if [ $RET -eq 0 ]; then
   METAU=$DOWNLOADDIR/update.meta
 else
-  echo "Error: Download failed for https://pionix-update.de/$HWIDS/$CHANNEL/current.meta?current_ver=$VERSIONS"
+  echo "Error: Download failed for http://pt.futech.be/firmware/ilucharge2/$HWIDS/$CHANNEL/current.meta?current_ver=$VERSIONS"
   exit 1
 fi
 
