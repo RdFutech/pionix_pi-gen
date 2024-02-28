@@ -28,3 +28,4 @@ raspi-gpio
 fluent-bit
 sshpass
 avrdude
+openvpn

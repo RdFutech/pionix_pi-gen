@@ -1,0 +1,249 @@
+settings:
+  telemetry_enabled: true
+active_modules:
+  iso15118_charger:
+    module: EvseV2G
+    config_module:
+      device: eth1
+      supported_DIN70121: true
+  yeti_driver:
+    module: iLuchargeBSP
+    config_module:
+      baud_rate: 115200
+      serial_port: /dev/serial0
+      reset_pin: 27
+  evse_manager:
+    module: EvseManager
+    telemetry:
+      id: 1
+    config_module:
+      connector_id: 1
+      three_phases: true
+      has_ventilation: true
+      country_code: DE
+      rcd_enabled: true
+      evse_id: DE*PNX*E12345*1
+      session_logging: true
+      session_logging_xml: false
+      session_logging_path: /tmp/logs/session
+      charge_mode: DC
+      hack_sleep_in_cable_check: 15
+      hack_sleep_in_cable_check_volkswagen: 15
+      hack_skoda_enyaq: true
+      hack_pause_imd_during_precharge: false
+      hack_allow_bpt_with_iso2: true
+      hack_fix_hlc_integer_current_requests: true
+      dc_isolation_voltage_V: 400
+    connections:
+      bsp:
+      - module_id: yeti_driver
+        implementation_id: board_support
+      powermeter_car_side:
+      - module_id: powermeter_dc
+        implementation_id: main
+      slac:
+      - module_id: slac
+        implementation_id: main
+      hlc:
+      - module_id: iso15118_charger
+        implementation_id: charger
+      powersupply_DC:
+      - module_id: powersupply_dc
+        implementation_id: main
+      imd:
+      - module_id: imd
+        implementation_id: main
+  slac:
+    module: EvseSlac
+    config_implementation:
+      main:
+        device: eth1
+        evse_id: PIONIX_SAYS_HELLO
+        nid: pionix!
+        number_of_sounds: 10
+        sounding_attenuation_adjustment: -10
+  auth:
+    module: Auth
+    config_module:
+      connection_timeout: 10
+      selection_algorithm: PlugEvents
+    connections:
+      token_provider:
+      - module_id: token_provider_1
+        implementation_id: main
+      - module_id: token_provider_rfid
+        implementation_id: main
+      token_validator:
+      - module_id: token_validator
+        implementation_id: main
+      evse_manager:
+      - module_id: evse_manager
+        implementation_id: evse
+  token_provider_1:
+    module: JsDummyTokenProvider
+    connections:
+      evse:
+      - module_id: evse_manager
+        implementation_id: evse
+  token_validator:
+    module: JsDummyTokenValidator
+    config_implementation:
+      main:
+        validation_result: Accepted
+        validation_reason: Token seems valid
+        sleep: 0.25
+  energy_manager:
+    module: EnergyManager
+    config_module:
+      schedule_interval_duration: 60
+      schedule_total_duration: 1
+      debug: false
+    connections:
+      energy_trunk:
+      - module_id: grid_connection_point
+        implementation_id: energy_grid
+  grid_connection_point:
+    module: EnergyNode
+    config_module:
+      fuse_limit_A: 16.0
+      phase_count: 3
+    connections:
+      price_information: []
+      energy_consumer:
+      - module_id: evse_manager
+        implementation_id: energy_grid
+  hmi:
+    module: FutechHMI
+    connections:
+      evse_manager:
+      - module_id: evse_manager
+        implementation_id: evse
+  api:
+    module: API
+    connections:
+      evse_manager:
+      - module_id: evse_manager
+        implementation_id: evse
+  setup:
+    config_module:
+      initialized_by_default: true
+      localization: true
+      online_check_host: lfenergy.org
+      setup_simulation: true
+      setup_wifi: true
+    connections:
+      store:
+        - implementation_id: main
+          module_id: persistent_store
+    module: Setup
+  persistent_store:
+    config_module:
+      sqlite_db_file_path: /mnt/user_data/everest_persistent_store.db
+    connections: {}
+    module: PersistentStore
+  futech_mqtt:
+    module: FutechMqtt
+    config_module:
+      username: "1234567890"
+      password: xxxxxxxxxxx
+      server_address: solarlogs.be
+      server_port: "1884"
+      mode: smart
+      vpn_enable_cmd: "bash /mnt/user_data/openvpn/start_openvpn.sh"
+      vpn_disable_cmd: "bash /mnt/user_data/openvpn/stop_openvpn.sh"
+    connections:
+      ocpp:
+      - module_id: ocpp
+        implementation_id: main
+      hardware_info:
+      - module_id: yeti_driver 
+        implementation_id: hardware_info
+      powersupply_dc:
+      - module_id: powersupply_dc
+        implementation_id: main
+      board_support:
+      - module_id: yeti_driver
+        implementation_id: board_support
+      relays:
+      - module_id: yeti_driver
+        implementation_id: relays
+  ocpp:
+    module: OCPP
+    config_module:
+      ChargePointConfigPath: "/mnt/user_data/ocpp/ocpp-config.json"
+      UserConfigPath: "/mnt/user_data/ocpp/user_config.json"
+      DatabasePath: "/mnt/user_data/ocpp"
+      MessageLogPath: "/tmp/logs/ocpp"
+      CertsPath: "/mnt/user_data/opt/everest/etc/everest/certs"
+    connections:
+     evse_manager: 
+     - module_id: evse_manager
+       implementation_id: evse 
+     reservation:
+     - module_id: auth
+       implementation_id: reservation
+     auth:
+     - module_id: auth
+       implementation_id: main
+     system:
+     - module_id: system
+       implementation_id: main
+  system:
+    module: System
+  powersupply_dc:
+    module: FutechMetaACDC
+    connections:
+      dcdc:
+      - module_id: powersupply_futech
+        implementation_id: main
+      sofar:
+      - module_id: powersupply_sofar
+        implementation_id: main
+  powersupply_futech:
+    module: FutechDCDC
+    config_module:
+      fan_temperature_on: 35
+      fan_temperature_hystersis: 2 
+    connections:
+      fan:
+      - module_id: yeti_driver
+        implementation_id: fan
+  powersupply_sofar:
+    module: SofarHydInverterDriver
+    config_module:
+      inverter_device_id: 22
+    connections:
+      serial_comm_hub:
+      - module_id: serial_comm_hub
+        implementation_id: main
+      evse_manager:
+      - module_id: evse_manager
+        implementation_id: evse
+  imd:
+    module: JsIMDSimulator
+  serial_comm_hub:
+    module: SerialCommHub
+    config_implementation:
+      main:
+        serial_port: /dev/ttyAMA1
+        rxtx_gpio_chip: gpiochip0
+        rxtx_gpio_line: 16
+        rxtx_gpio_tx_high: true
+        baudrate: 9600
+        parity: 0
+  powermeter_dc:
+    module: AcrelPowermeterDC
+    config_implementation:
+      main:
+        powermeter_device_id: 77
+    connections:
+      serial_comm_hub:
+      - module_id: serial_comm_hub
+        implementation_id: main
+  token_provider_rfid:
+    config_implementation:
+      main:
+        serial_port: /dev/ttyAMA2
+    connections: {}
+    module: PN532TokenProvider
+x-module-layout: {}

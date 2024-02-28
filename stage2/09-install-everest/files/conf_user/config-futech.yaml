@@ -1,0 +1,24 @@
+active_modules:
+  iso15118_charger:
+    config_module:
+      supported_DIN70121: true
+  futech_mqtt:
+    module: FutechMqtt
+    config_module:
+      username: "20220899999"
+      password: 3fyz05hkr
+      server_address: solarlogs.be
+      server_port: "1884"
+      mode: smart
+  powersupply_sofar:
+    module: SofarHydInverterDriver
+    config_module:
+      inverter_device_id: 22
+      use_passive_mode: true
+      query_status_registers: true
+  persistent_store:
+    config_module:
+      sqlite_db_file_path: /mnt/user_data/everest_persistent_store.db
+  ocpp:
+    config_module:
+      CertsPath: /mnt/user_data/ocpp/certs
