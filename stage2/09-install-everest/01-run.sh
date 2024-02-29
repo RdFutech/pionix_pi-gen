@@ -8,16 +8,14 @@ install -m 644 files/fluent-bit.conf "${ROOTFS_DIR}/etc/fluent-bit/"
 install -D -m 644 files/known_hosts "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.ssh/known_hosts"
 install -D -m 644 files/known_hosts "${ROOTFS_DIR}/root/.ssh/known_hosts"
 install -D -m 644 files/mosquitto.conf "${ROOTFS_DIR}/etc/mosquitto/"
-mkdir -p "${ROOTFS_DIR}/mnt/user_data/ocpp"
-mkdir -p "${ROOTFS_DIR}/mnt/user_data/openvpn"
+mkdir -p "${ROOTFS_DIR}/home/everest/ocpp"
+mkdir -p "${ROOTFS_DIR}/home/everest/openvpn"
 for file in files/ocpp/*;do
-    install -m 644 "$file" "${ROOTFS_DIR}/mnt/user_data/ocpp/"
+    install -m 644 "$file" "${ROOTFS_DIR}/home/everest/ocpp/"
 done
 for file in files/openvpn/*;do
-    install -m 644 "$file" "${ROOTFS_DIR}/mnt/user_data/openvpn/"
+    install -m 644 "$file" "${ROOTFS_DIR}/home/everest/openvpn/"
 done
-mkdir -p "${ROOTFS_DIR}/mnt/user_data/user-config"
-install -D -m 644 files/conf_user/config-futech.yaml "${ROOTFS_DIR}/mnt/user_data/user-config/"
 
 mkdir -p $WORK_DIR/everest
 (
@@ -46,4 +44,6 @@ else
     ln -s /mnt/user_data/etc/mosquitto/conf.d /etc/mosquitto/conf.d
 fi
 pip3 install py4j aiofile environs
+chmod +x /home/everest/openvpn/stop_openvpn.sh
+chmod +x /home/everest/openvpn/start_openvpn.sh
 EOF
