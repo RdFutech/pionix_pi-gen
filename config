@@ -12,7 +12,7 @@ IMG_DESCRIPTION='Cool new update'
 HW_ID='futechr1'
 # this is where the full update goes on the server.
 # should be unstable, testing or stable
-UPDATE_CHANNEL='stable'
+UPDATE_CHANNEL='basecamp'
 # this selects which everest packages to install
 # should be unstable, testing or stable
 UPDATE_EVEREST_CHANNEL='basecamp'

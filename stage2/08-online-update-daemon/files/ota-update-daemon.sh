@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHANNEL="stable"
+CHANNEL="basecamp"
 
 if [ -f "/mnt/user_data/etc/update_channel" ]; then
   CHANNEL=$(cat /mnt/user_data/etc/update_channel)
