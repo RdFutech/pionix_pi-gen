@@ -1,8 +1,8 @@
 [Unit]
 Description=Mark boot as good for rauc
 Before=read-only-root.service
+Before=update-hostname.service
 After=systemd-logind.service
-After=update-hostname.service
 After=rpi-eeprom-update.service
 After=ssh.service
 
