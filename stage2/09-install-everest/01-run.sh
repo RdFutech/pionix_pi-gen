@@ -9,12 +9,11 @@ install -D -m 644 files/known_hosts "${ROOTFS_DIR}/home/${FIRST_USER_NAME}/.ssh/
 install -D -m 644 files/known_hosts "${ROOTFS_DIR}/root/.ssh/known_hosts"
 install -D -m 644 files/mosquitto.conf "${ROOTFS_DIR}/etc/mosquitto/"
 mkdir -p "${ROOTFS_DIR}/home/futech/ocpp"
-mkdir -p "${ROOTFS_DIR}/home/futech/openvpn"
 for file in files/ocpp/*;do
     install -m 644 "$file" "${ROOTFS_DIR}/home/futech/ocpp/"
 done
 for file in files/openvpn/*;do
-    install -m 644 "$file" "${ROOTFS_DIR}/home/futech/openvpn/"
+    install -m 644 "$file" "${ROOTFS_DIR}/etc/openvpn/client/"
 done
 
 mkdir -p $WORK_DIR/everest
@@ -33,6 +32,7 @@ systemctl enable everest.service
 systemctl enable everest-rpi.service
 systemctl enable everest-dev.service
 systemctl enable mosquitto-config-init.service
+systemctl enable openvpn-client@futech
 #ln -s /mnt/user_data/user-config/ocpp /opt/everest/share/everest/ocpp/
 
 if [ -L "/etc/mosquitto/conf.d" ]; then
@@ -44,6 +44,4 @@ else
     ln -s /mnt/user_data/etc/mosquitto/conf.d /etc/mosquitto/conf.d
 fi
 pip3 install py4j aiofile environs
-chmod +x /home/futech/openvpn/stop_openvpn.sh
-chmod +x /home/futech/openvpn/start_openvpn.sh
 EOF
