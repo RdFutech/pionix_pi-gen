@@ -7,8 +7,8 @@ Documentation=http://nodered.org/docs/hardware/raspberrypi.html
 
 [Service]
 Type=oneshot
-User=everest
-Group=everest
+User=futech
+Group=futech
 ExecStart=/usr/bin/nodered_init.sh
 
 [Install]

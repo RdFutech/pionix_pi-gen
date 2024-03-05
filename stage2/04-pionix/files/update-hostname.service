@@ -3,7 +3,6 @@ Description=Update hostname to sth unique (run once on first boot)
 Before=systemd-hostnamed.service
 After=mnt-user_data.mount
 ConditionFileIsExecutable=/usr/bin/update-hostname.sh
-SuccessAction=reboot
 
 [Service]
 Type=oneshot

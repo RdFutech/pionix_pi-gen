@@ -6,5 +6,5 @@ then
    # Do something knowing the pid exists, i.e. the process with $PID is running
 else
    echo "starting openvpn"
-   exec /usr/bin/sudo /usr/sbin/openvpn --config /home/everest/openvpn/futech.conf --daemon openvpn_futech
+   exec /usr/bin/sudo /usr/sbin/openvpn --config /home/futech/openvpn/futech.conf --daemon openvpn_futech
 fi

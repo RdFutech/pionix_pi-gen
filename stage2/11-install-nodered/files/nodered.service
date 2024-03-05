@@ -7,8 +7,8 @@ Documentation=http://nodered.org/docs/hardware/raspberrypi.html
 
 [Service]
 Type=simple
-User=everest
-Group=everest
+User=futech
+Group=futech
 WorkingDirectory=/mnt/user_data/nodered
 
 Environment="NODE_OPTIONS=--max_old_space_size=2048"
