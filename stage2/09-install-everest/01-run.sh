@@ -35,6 +35,7 @@ systemctl enable everest-rpi.service
 systemctl enable everest-dev.service
 systemctl enable mosquitto-config-init.service
 systemctl enable openvpn-client@ilucharge2
+timedatectl set-ntp true
 #ln -s /mnt/user_data/user-config/ocpp /opt/everest/share/everest/ocpp/
 
 if [ -L "/etc/mosquitto/conf.d" ]; then

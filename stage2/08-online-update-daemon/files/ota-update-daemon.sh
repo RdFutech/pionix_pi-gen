@@ -2,6 +2,11 @@
 
 CHANNEL="basecamp"
 
+if mosquitto_sub -t everest_api/evse_manager/var/session_info -C 1 -W 1 | jq -r '.state' | grep -q 'Charging' ; then
+  echo "System is currently charging, no updates should be performed..."
+  exit 1
+fi
+
 if [ -f "/mnt/user_data/etc/update_channel" ]; then
   CHANNEL=$(cat /mnt/user_data/etc/update_channel)
 fi

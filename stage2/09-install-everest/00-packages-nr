@@ -1,4 +1,5 @@
 mosquitto
+mosquitto-clients
 openjdk-17-jre
 nodejs
 sqlite3
@@ -29,3 +30,4 @@ fluent-bit
 sshpass
 avrdude
 openvpn
+systemd-timesyncd
