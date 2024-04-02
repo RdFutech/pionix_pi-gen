@@ -4,7 +4,7 @@
 
         "ChargePointId": "20221000001",
 
-        "CentralSystemURI": "solarlogs.be:8880/OCPP/websocket/CentralSystemService/20221000001",
+        "CentralSystemURI": "solarlogs.be:8880",
 
         "ChargeBoxSerialNumber": "20221000001",
 

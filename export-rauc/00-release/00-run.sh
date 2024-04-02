@@ -7,6 +7,6 @@ install -v		files/manifest.raucm		"${RAUC_DIR}/"
 sed -i "s/VERSION/${IMG_FILENAME}/g" "${RAUC_DIR}/manifest.raucm"
 
 rm -f "${DEPLOY_DIR}/${IMG_FILENAME}.raucb"
-rauc --cert ~/rauc-pki/pionix-rauc-update.cert.pem --key ~/rauc-pki/pionix-rauc-update.key.pem bundle "${RAUC_DIR}" "${DEPLOY_DIR}/${IMG_FILENAME}.raucb"
+rauc --cert ~/rauc-pki/futech-cert.pem --key ~/rauc-pki/futech-key.pem bundle "${RAUC_DIR}" "${DEPLOY_DIR}/${IMG_FILENAME}.raucb"
 mv "${DEPLOY_DIR}/${IMG_FILENAME}.raucb" "${DEPLOY_DIR}/${IMG_FILENAME}.pnx"
 
