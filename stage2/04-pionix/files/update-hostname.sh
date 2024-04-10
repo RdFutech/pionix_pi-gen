@@ -17,4 +17,4 @@ echo New hostname $NHN
 /usr/bin/sed -i "s/$HN/$NHN/g" /etc/hosts
 /usr/bin/cp /tmp/hostname /etc
 /usr/bin/hostname -F /etc/hostname
-sed -i "/ssid=/c\ssid=$NHN" /etc/hostapd/hostapd.conf
+/usr/bin/sed -i "/ssid=/c\ssid=$NHN" /etc/hostapd/hostapd.conf

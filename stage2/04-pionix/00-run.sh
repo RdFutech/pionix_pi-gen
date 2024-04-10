@@ -5,8 +5,8 @@ install -m 755 files/update-hostname.sh "${ROOTFS_DIR}/usr/bin"
 install -m 644 files/update-hostname.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 # set wifi ap password on first boot
-install -m 755 files/set-wifi-ap-password.sh "${ROOTFS_DIR}/usr/bin"
-install -m 644 files/set-wifi-ap-password.service "${ROOTFS_DIR}/lib/systemd/system/"
+#install -m 755 files/set-wifi-ap-password.sh "${ROOTFS_DIR}/usr/bin"
+#install -m 644 files/set-wifi-ap-password.service "${ROOTFS_DIR}/lib/systemd/system/"
 
 # install dnsmasq and hostapd configs for AP mode, ssid of AP wil be set to hostname on first boot
 install -m 644 files/dnsmasq.conf "${ROOTFS_DIR}/etc/dnsmasq.conf"
@@ -49,7 +49,7 @@ ln -s /tmp /var/lock
 echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 systemctl enable update-hostname.service
-systemctl enable set-wifi-ap-password.service
+#systemctl enable set-wifi-ap-password.service
 systemctl unmask hostapd.service
 systemctl disable hostapd.service
 systemctl disable dnsmasq.service
