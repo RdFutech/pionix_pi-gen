@@ -1,0 +1,7 @@
+Package: open-plc-utils
+Version: 0.0.6
+Architecture: armhf
+Maintainer: Kristof Gaukema
+Description: iLumen version of open plc utils
+Depends: dpkg-dev
+
