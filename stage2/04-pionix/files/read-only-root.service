@@ -6,6 +6,7 @@ After=rpi-eeprom-update.service
 After=ssh.service
 After=matrix-orbital.service
 After=nodered_init.service
+After=ocpp_certs.service
 SuccessAction=reboot
 
 [Service]

@@ -1,0 +1,18 @@
+[Unit]
+Description=Create ocpp default certs folder if it does not exist yet
+Before=read-only-root.service
+
+[Service]
+Type=oneshot
+ExecStart=mkdir -p /mnt/user_data/ocpp/certs/ca/cso
+ExecStart=mkdir -p /mnt/user_data/ocpp/certs/ca/csms
+ExecStart=mkdir -p /mnt/user_data/ocpp/certs/ca/mf
+ExecStart=mkdir -p /mnt/user_data/ocpp/certs/ca/mo
+ExecStart=mkdir -p /mnt/user_data/ocpp/certs/ca/oem
+ExecStart=mkdir -p /mnt/user_data/ocpp/certs/ca/v2g
+ExecStart=cp -rf /home/futech/ocpp /mnt/user_data/ocpp
+ExecStart=rm -rf /home/futech/ocpp
+ExecStartPost=-systemctl disable ocpp_certs.service
+
+[Install]
+WantedBy=multi-user.target

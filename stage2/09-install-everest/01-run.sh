@@ -12,11 +12,9 @@ mkdir -p "${ROOTFS_DIR}/home/futech/ocpp"
 for file in files/ocpp/*;do
     install -m 644 "$file" "${ROOTFS_DIR}/home/futech/ocpp/"
 done
-mkdir -p "${ROOTFS_DIR}/etc/openvpn/client/keys/"
+install -m 644 files/ocpp_certs.service "${ROOTFS_DIR}/lib/systemd/system/"
+
 install -D -m 644 files/openvpn/ilucharge2.conf "${ROOTFS_DIR}/etc/openvpn/client/"
-for file in files/openvpn/keys/*;do
-    install -m 644 "$file" "${ROOTFS_DIR}/etc/openvpn/client/keys/"
-done
 
 mkdir -p $WORK_DIR/everest
 (
@@ -34,6 +32,7 @@ systemctl enable everest.service
 systemctl enable everest-rpi.service
 systemctl enable everest-dev.service
 systemctl enable mosquitto-config-init.service
+systemctl enable ocpp_certs.service
 systemctl enable openvpn-client@ilucharge2
 #ln -s /mnt/user_data/user-config/ocpp /opt/everest/share/everest/ocpp/
 
