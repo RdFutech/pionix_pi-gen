@@ -13,6 +13,9 @@ for file in files/ocpp/*;do
     install -m 644 "$file" "${ROOTFS_DIR}/home/futech/ocpp/"
 done
 install -m 644 files/ocpp_certs.service "${ROOTFS_DIR}/lib/systemd/system/"
+install -m 755 files/ocpp_certs.sh "${ROOTFS_DIR}/usr/bin"
+
+install -m 755 files/ilucharge_avrdude.sh "${ROOTFS_DIR}/usr/bin"
 
 install -D -m 644 files/openvpn/ilucharge2.conf "${ROOTFS_DIR}/etc/openvpn/client/"
 
