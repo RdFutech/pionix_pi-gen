@@ -1,0 +1,11 @@
+[Unit]
+Description=Clean tmp folder timer
+
+[Timer]
+Persistent=false
+OnBootSec=60
+OnUnitActiveSec=43200
+Unit=clean_tmp_folder.service
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,9 @@
+[Unit]
+Description=Exec clean tmp folder once
+
+[Service]
+Type=simple
+ExecStart=clean_tmp_logs.sh
+
+[Install]
+WantedBy=default.target
