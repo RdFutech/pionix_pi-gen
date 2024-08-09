@@ -4,6 +4,7 @@ Description=Pull OTA update once
 [Service]
 Type=simple
 ExecStart=ota-update-daemon.sh
+RuntimeMaxSec=3600
 
 [Install]
 WantedBy=default.target
